@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Парфенов Дмитрий</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+  </head>
+  <body>
+    <header>
+      <p>Сайт-визитка. Обо мне.</p>
+    </header>
+
+    <article>
+      <h1 class="title">Парфенов Дмитрий</h1>
+      <p>
+        Привет, меня зовут Парфенов Дмитрий, мне 19 лет. Родился и живу в Йошкар-Оле.
+      </p>
+      <div class="my-hobbies">
+        <h2 class="my-hobbies-header">Мои увлечения</h2>
+        <ul>
+          <li>Футбол</li>
+          <li>Игры</li>
+          <li>Активный отдых</li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </article>
+    {% for theme in array %}
+    <p class="title">{{ theme.header}} </p>
+    <div class="ant-carousel" id="{{ theme.header }}">
+      <div class="ant-carousel-hider">
+        <ul class="ant-carousel-list">
+        {% for image in theme.images %}   
+          <li class="ant-carousel-element">
+            <img class="ant-img" src="{{ image }}" alt="0">
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+      <div class="ant-carousel-arrow-left"></div>
+      <div class="ant-carousel-arrow-right"></div>
+      <div class="ant-carousel-dots"></div>
+    </div>
+    {% endfor %}
+	
+    <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/runtime.js') }}"></script>
+    
+  </body>
+</html>
